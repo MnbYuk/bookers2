@@ -2,6 +2,10 @@ class ApplicationController < ActionController::Base
 
   before_action :configiure_permitted_parameters, if: :devise_controller?
 
+  def after_sign_in_path_for(resource)
+    about_path
+  end
+
   protected
 
   def configiure_permitted_parameters
