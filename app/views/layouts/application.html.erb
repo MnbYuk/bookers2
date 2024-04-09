@@ -14,7 +14,7 @@
     <header>
       <% if user_signed_in? %>
         <li>
-          <%= link_to "Log out", destroy_user_session_path, method: :derele %>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
         </li>
       <% else %>
         <li>
@@ -25,6 +25,14 @@
         </li>
       <% end %>
     </header>
-    <%= yield %>
+    <main>
+        <%= yield %>
+    </main>
+    <footer>
+      <p>
+        CopyRight Infratop.inc
+      </p>
+    </footer>
+
   </body>
 </html>
