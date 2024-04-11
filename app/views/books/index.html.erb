@@ -13,8 +13,8 @@
           <th>説明</th>
         </tr>
       </table>
+<%= link_to "ユーザー編集のリンク", edit_user_path(:id) %>
 
-        ユーザー編集のリンク
 
       <h2>New book</h2>
       <%= form_with model: @book do |f| %>
@@ -29,7 +29,23 @@
     </div>
 
     <div class="col-md-8">
-      aaaa
+<table>
+    <thead>
+        <th>Title</th>
+        <th>Book</th>
+    </thead>
+
+    <tbody>
+        <% @books.each do |book| %>
+            <tr>
+                <td><span><%= link_to book.title, book_path(book.id)%></span></td>
+                <td><span><%= book.body %></span></td>
+            </tr>
+        <% end %>
+
+    </tbody>
+
+</table>
     </div>
   </div>
 </div>
