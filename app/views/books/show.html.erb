@@ -1,2 +1,7 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<%= render 'book', book: @book %>
+<h1>Book detail</h1>
+<p>投稿ユーザー画像<%= image_tag book.user.get_profie_image(100,100) %></p>
+<p>タイトル</p>
+<p>説明</p>
+<p>えぢっと</p>
+<p>destroy</p>
