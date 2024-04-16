@@ -1,10 +1,20 @@
 <%= render 'book', book: @book %>
-<h1>Book detail</h1>
-<p>タイトル<%= @book.title %></p>
-<p>説明　<%= @book.body %></p>
-<p>えぢっと</p>
-<p>
-  <% if @book.user == current_user %>
-    <%= link_to "削除", book_path(@book), method: :delete %>
-  <% end %>
-</p>
+  <div class="col-md-8">
+  <h1>Book detail</h1>
+  <table>
+    <tbody>
+      <% image_tag @book.get_image %>
+        <tr>
+          <td><span><%= image_tag 'sample-author1.jpg' %></span></td>
+          <td><span><%= @book.title %></span></td>
+          <td><span><%= @book.body %></span></td>
+          <% if @book.user == current_user %>
+            <td><span><%= link_to "destroy", book_path(@book), method: :delete %></span></td>
+
+          <% end %>
+        </tr>
+
+    </tbody>
+  </table>
+  </div>
+
