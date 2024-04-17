@@ -1,20 +1,26 @@
-<%= render 'book', book: @book %>
+<%= render 'book', books: @books %>
   <div class="col-md-8">
   <h1>Book detail</h1>
-  <table>
-    <tbody>
-      <% image_tag @book.get_image %>
-        <tr>
-          <td><span><%= image_tag 'sample-author1.jpg' %></span></td>
-          <td><span><%= @book.title %></span></td>
-          <td><span><%= @book.body %></span></td>
-          <% if @book.user == current_user %>
-            <td><span><%= link_to "destroy", book_path(@book), method: :delete %></span></td>
+ <table>
+    <thead>
+        <th></th>
+        <th>Title</th>
+        <th>Book</th>
+    </thead>
 
-          <% end %>
-        </tr>
+    <tbody>
+        <% image_tag @book.get_image %>
+            <tr>
+                <td><span><%= image_tag @book.user.get_profile_image(100,100) %></span></td>
+                <td><span><%= link_to @book.title, book_path(@book.id) %></span></td>
+                <td><span><%= @book.body %></span></td>
+              <% if @book.user == current_user %>
+                <td><span><%= link_to "削除", post_image_path(@post_image), method: :delete %></span></td>
+              <% end %>
+            </tr>
 
     </tbody>
-  </table>
+
+</table>
   </div>
 
