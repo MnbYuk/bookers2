@@ -1,0 +1,24 @@
+
+<%= render 'books/book', user: @user %>
+
+<h2>Users</h2>
+userの一覧を作る
+  <table>
+    <thead>
+
+        <th>Image</th>
+        <th>name</th>
+        <th></th>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><span><%= image_tag user.get_profile_image(100,100) %></span></td>
+          <td><span><%=  link_to user.name, user_path(user.id) %></span></td>
+          <td><span><%= user.introduction %></span></td>
+      <% end %>
+        </tr>
+    </tbody>
+  </table>
+

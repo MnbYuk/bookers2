@@ -4,6 +4,10 @@ class BooksController < ApplicationController
     @user = current_user
     @books = Book.all
   end
+  
+  def edit
+    @book = Book.find(params[:id])
+  end
 
   def create
     @book = Book.new(book_params)
