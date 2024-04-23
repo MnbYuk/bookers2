@@ -1,14 +1,14 @@
-<%= render 'book', user: @book.user %>
+<%= render 'book', user: @book_a.user, book: @book %>
   <div class="col-md-8">
 <h1>Editing Book</h1>
-  <% if @book.errors.any? %>
-    <%= @book.errors.count %>error prohibited this book from being saved
-      <% @book.errors.full_messages.each do |message| %>
+  <% if @book_a.errors.any? %>
+    <%= @book_a.errors.count %>error prohibited this book from being saved
+      <% @book_a.errors.full_messages.each do |message| %>
          <li><%= message %></li>
       <% end %>
   <% end %>
 
-<%= form_with model: @book do |f| %>
+<%= form_with model: @book_a do |f| %>
 
   <h4>Title</h4>
 
@@ -21,7 +21,7 @@
   <%= f.submit 'Update Book'%>
 
 <% end %>
-<%= link_to "Show", book_path(@book.id) %>
+<%= link_to "Show", book_path(@book_a.id) %>
 |
 <%= link_to "Back", books_path %>
 </div>
