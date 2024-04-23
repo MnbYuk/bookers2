@@ -1,5 +1,5 @@
 <%= render 'book', user: @book.user %>
-
+  <div class="col-md-8">
 <h1>Editing Book</h1>
   <% if @book.errors.any? %>
     <%= @book.errors.count %>error prohibited this book from being saved
@@ -24,3 +24,4 @@
 <%= link_to "Show", book_path(@book.id) %>
 |
 <%= link_to "Back", books_path %>
+</div>
