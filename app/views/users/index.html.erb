@@ -1,13 +1,12 @@
 <%= render 'books/book', user: @user, book: @book %>
-  <div class="col-md-8">
-<h2>Users</h2>
-userの一覧を作る
+<div class="col-md-8">
+  <h2>Users</h2>
+
   <table>
     <thead>
-
-        <th>Image</th>
-        <th>name</th>
-        <th></th>
+      <th>Image</th>
+      <th>name</th>
+      <th></th>
     </thead>
 
     <tbody>
@@ -16,8 +15,8 @@ userの一覧を作る
           <td><span><%= image_tag user.get_profile_image(100,100) %></span></td>
           <td><span><%= user.name %></span></td>
           <td><span><%= link_to "Show", user_path(user.id) %></span></td>
-      <% end %>
         </tr>
+      <% end %>
     </tbody>
   </table>
-  </div>
+</div>
