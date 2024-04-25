@@ -44,6 +44,14 @@
     </header>
     <main>
       <div class="container px-5 px-sm-0">
+        <div>
+          <% flash.each do |message_type, message| %>
+            <%= content_tag :div, message, class: message_type %>
+          <% end %>
+          <%=  flash[:notice_book_create] %>
+          <%=  flash[:notice_book_update] %>
+          <%=  flash[:notice_user_update] %>
+        </div>
           <div class="row">
         <%= yield %>
           </div>
