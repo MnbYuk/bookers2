@@ -1,6 +1,7 @@
-<%= render 'book', user: @user, book: @book %>
 
-  <div class="offst-md-1 col-md-8">
+<%= render 'book', user: @user, book: @book %>
+<div class="offst-md-1">
+  <div class="col-md-8">
   <h1>Book detail</h1>
  <table>
     <thead>
@@ -14,9 +15,11 @@
                 <td><span><%= image_tag @book_a.user.get_profile_image(100,100) %></span></td>
                 <td><span><%= link_to @book_a.title, book_path(@book_a.id) %></span></td>
                 <td><span><%= @book_a.body %></span></td>
-                
-                <td><span><%= link_to "Edit", edit_book_path(@book_a.id) %></span></td>
-                <td><span><%= link_to "Destroy", book_path(@book_a.id), method: :delete, "data-confirm" => "Are you sure?" %></span></td>
+
+                <% if @book_a.user == current_user %>
+                  <td><span><%= link_to "Edit", edit_book_path(@book_a.id) %></span></td>
+                  <td><span><%= link_to "Destroy", book_path(@book_a.id), method: :delete, "data-confirm" => "Are you sure?" %></span></td>
+                <% end %>
             </tr>
 
     </tbody>
