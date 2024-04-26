@@ -65,14 +65,28 @@
     </header>
     <main>
     <div class="container px-5 px-sm-0">
-      <div class="row">
-        <%= yield %>
+
+        <div>
+          <% flash.each do |message_type, message| %>
+            <%= content_tag :div, message, class: message_type %>
+          <% end %>
+      <div id ="error_exolanation">
+             <% if @book.errors.any? %>
+          <%= @book.errors.count %>errors prohibited this obj from being saved:
+            <ul>
+              <% @book.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          <% end %>
+      </div>
         </div>
+        <%= yield %>
         </div>
     </main>
     <footer>
-      <div class="container mt-5">
-        <div class="row">
+      <div class = "container mt-5">
+        <div class = "row">
           <div class="mx auto">
             <p>
               CopyRight Infratop.inc
@@ -80,6 +94,7 @@
           </div>
         </div>
       </div>
+
     </footer>
 
   </body>
