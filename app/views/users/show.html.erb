@@ -1,8 +1,5 @@
-<div class="row">
 <%= render 'books/book', user: @user, book: @book %>
-
-  <div class="offst-md-1">
-  <div class="col-md-8">
+  <div class="col-md-8 offset-md-1">
 
   <h1>Books</h1>
 <table>
@@ -15,11 +12,15 @@
     <tbody>
         <% @books.each do |book| %>
             <tr>
-                <td><span><%= image_tag @user.get_profile_image(100,100) %></span></td>
+                <td><span>
+                    <%= link_to user_path(book.user) do %>
+                        <%= image_tag @user.get_profile_image(100,100) %>
+                    <% end %>
+                </span></td>
                 <td><span><%= link_to book.title, book_path(book.id) %></span></td>
                 <td><span><%= book.body %></span></td>
             </tr>
         <% end %>
     </tbody>
-  </div>
+</table>
   </div>

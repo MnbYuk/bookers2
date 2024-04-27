@@ -13,7 +13,7 @@
   <body>
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-
+    <div class="container px-5 px-sm-0">
         <ul class="navbar-nav">
           <li class="nav-item">
             <%= link_to "Bookers", root_path %>
@@ -61,40 +61,26 @@
           </ul>
       </div>
     </nav>
-
     </header>
+    
     <main>
-    <div class="container px-5 px-sm-0">
-
-        <div>
-          <% flash.each do |message_type, message| %>
-            <%= content_tag :div, message, class: message_type %>
-          <% end %>
-      <div id ="error_exolanation">
-             <% if @book.errors.any? %>
-          <%= @book.errors.count %>errors prohibited this obj from being saved:
-            <ul>
-              <% @book.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
-          <% end %>
+      <div class="container px-5 px-sm-0">
+        <div class="row">
+          <%= yield %>
+        </div>
       </div>
-        </div>
-        <%= yield %>
-        </div>
     </main>
+    
     <footer>
-      <div class = "container mt-5">
-        <div class = "row">
-          <div class="mx auto">
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
             <p>
               CopyRight Infratop.inc
             </p>
           </div>
         </div>
       </div>
-
     </footer>
 
   </body>
