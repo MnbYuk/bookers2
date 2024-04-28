@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def index
     @user = current_user
     @users = User.all
@@ -14,9 +15,10 @@ class UsersController < ApplicationController
   def edit
     user = User.find(params[:id])
     unless user.id == current_user.id
-      redirect_to books_path
+      redirect_to user_path((current_user.id))
     end
     @user = User.find(params[:id])
+
   end
 
   def update
