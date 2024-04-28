@@ -1,4 +1,4 @@
-           <div>
+  <div class="col-md-3">
           <% flash.each do |message_type, message| %>
             <%= content_tag :div, message, class: message_type %>
           <% end %>
@@ -11,9 +11,9 @@
               <% end %>
             </ul>
           <% end %>
-      </div>
         </div>
-  <div class="col-md-3">
+
+
 
       <h2>User info</h2>
         <p><%= image_tag user.get_profile_image(100,100) %></p>
